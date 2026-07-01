@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyFlow - A premium Study Planner and Productivity Suite with Pomodoro, Flashcards, Notes, and Quiz Maker.">
+  <title>StudyFlow | Premium Study Planner</title>
+  
+  <!-- Styling Layer -->
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/components.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">
+          <!-- Calendar/Planner SVG Icon -->
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <span class="logo-text">StudyFlow</span>
+      </div>
+
+      <nav class="nav-menu">
+        <li class="nav-item active" id="nav-dashboard">
+          <a href="#dashboard">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"></path>
+            </svg>
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item" id="nav-todo">
+          <a href="#todo">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+            Tasks Planner
+          </a>
+        </li>
+        <li class="nav-item" id="nav-pomodoro">
+          <a href="#pomodoro">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Pomodoro Focus
+          </a>
+        </li>
+        <li class="nav-item" id="nav-notes">
+          <a href="#notes">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+            Study Notebook
+          </a>
+        </li>
+        <li class="nav-item" id="nav-flashcards">
+          <a href="#flashcards">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+            3D Flashcards
+          </a>
+        </li>
+        <li class="nav-item" id="nav-quiz">
+          <a href="#quiz">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Reminder Quizzes
+          </a>
+        </li>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">SF</div>
+          <div class="user-info">
+            <span class="username">Scholar Mode</span>
+            <span class="user-subtitle">Ready to Study</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- 1. DASHBOARD VIEW -->
+      <section id="dashboard-view" class="view-container active">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Welcome Back, Scholar</h1>
+            <p class="page-subtitle">Track your focus, plan your goals, and master your topics today.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-stats">
+          <div class="glass-card stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">
+              <svg style="width:24px; height:24px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value" id="dash-stat-minutes">0m</div>
+              <div class="stat-label">Focus Time</div>
+            </div>
+          </div>
+          <div class="glass-card stat-card">
+            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+              <svg style="width:24px; height:24px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value" id="dash-stat-cards">0</div>
+              <div class="stat-label">Cards Reviewed</div>
+            </div>
+          </div>
+          <div class="glass-card stat-card">
+            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+              <svg style="width:24px; height:24px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <div class="stat-value" id="dash-stat-quizzes">0</div>
+              <div class="stat-label">Quizzes Beaten</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="motivational-banner">
+          <div class="motivational-text" id="dash-quote-text">"Loading study motivation..."</div>
+          <div class="motivational-author" id="dash-quote-author">— StudyFlow</div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="glass-card" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <h3 style="font-family: var(--font-heading);">Daily Tasks Tracker</h3>
+            <div>
+              <div id="dash-task-progress-text" style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:8px;">0 / 0 Tasks Completed</div>
+              <div class="study-progress" style="height:8px;">
+                <div class="study-progress-bar" id="dash-task-progress-bar" style="width:0%"></div>
+              </div>
+            </div>
+            
+            <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+              <h4 style="font-family: var(--font-heading); margin-bottom:1rem;">Next Task Due</h4>
+              <div id="dash-next-task-box">
+                <!-- Loaded dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: rgba(236, 72, 153, 0.1); border: 2px solid var(--accent-pink); display: flex; align-items: center; justify-content: center; color: var(--accent-pink); margin-bottom: 0.5rem; animation: pulse 2s infinite;">
+              <svg style="width:36px; height:36px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 style="font-family: var(--font-heading);">Time to Focus?</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Start a 25-minute Pomodoro cycle with ambient sound backdrops.</p>
+            <a href="#pomodoro" class="btn btn-primary" style="margin-top: 0.5rem; font-size: 0.9rem; width: 100%;">Open Focus Timer</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. TODO TASK PLANNER VIEW -->
+      <section id="todo-view" class="view-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Tasks Planner</h1>
+            <p class="page-subtitle">Schedule and organize your study items, lectures, and homework.</p>
+          </div>
+        </div>
+
+        <div class="grid-3" style="grid-template-columns: 1fr 2fr; gap: 1.5rem; align-items: flex-start;">
+          <!-- Task Inputs Form -->
+          <div class="glass-card">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 1.25rem;">New Study Goal</h3>
+            <form id="todo-form" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <label style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 4px;">Task Description</label>
+                <input type="text" id="todo-input-text" class="glass-input" placeholder="e.g. Read Bio Chapter 3" required>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <div>
+                  <label style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 4px;">Priority</label>
+                  <select id="todo-input-priority" class="glass-select" style="width: 100%;">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 4px;">Category</label>
+                  <input type="text" id="todo-input-category" class="glass-input" placeholder="e.g. Math, Bio">
+                </div>
+              </div>
+
+              <div>
+                <label style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 4px;">Due Date</label>
+                <input type="date" id="todo-input-date" class="glass-input" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Add Task</button>
+            </form>
+          </div>
+
+          <!-- Todo List -->
+          <div class="glass-card todo-container">
+            <div class="todo-filters">
+              <div style="display: flex; gap: 0.35rem; background: rgba(0,0,0,0.2); padding: 0.25rem; border-radius: 10px;">
+                <button class="btn btn-secondary todo-filter-btn active" data-filter="all" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; border:none; background:transparent;">All</button>
+                <button class="btn btn-secondary todo-filter-btn" data-filter="pending" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; border:none; background:transparent;">Pending</button>
+                <button class="btn btn-secondary todo-filter-btn" data-filter="completed" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; border:none; background:transparent;">Done</button>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Sort:</span>
+                <select id="todo-sort-select" class="glass-select" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+                  <option value="dueDate">Due Date</option>
+                  <option value="priority">Priority</option>
+                  <option value="alphabetical">Alphabetical</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="todo-list" id="todo-list">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. POMODORO FOCUS TIMER VIEW -->
+      <section id="pomodoro-view" class="view-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Focus Session</h1>
+            <p class="page-subtitle">Utilize the Pomodoro scientific spacing method with ambient background loops.</p>
+          </div>
+        </div>
+
+        <div class="grid-3" style="grid-template-columns: 2fr 1.25fr; gap: 1.5rem; align-items: flex-start;">
+          <!-- Timer Area -->
+          <div class="glass-card pomodoro-wrapper">
+            <div class="pomodoro-modes">
+              <button class="pomodoro-mode-btn active" data-mode="focus">Focus (25m)</button>
+              <button class="pomodoro-mode-btn" data-mode="shortBreak">Short Break (5m)</button>
+              <button class="pomodoro-mode-btn" data-mode="longBreak">Long Break (15m)</button>
+            </div>
+
+            <div class="pomodoro-timer-container">
+              <svg width="320" height="320" viewBox="0 0 320 320">
+                <circle class="pomodoro-circle-bg" cx="160" cy="160" r="140" />
+                <circle class="pomodoro-circle-progress" id="pomodoro-circle-progress" cx="160" cy="160" r="140" />
+              </svg>
+              <div class="timer-text-container">
+                <div class="timer-digits" id="timer-digits">25:00</div>
+                <div class="timer-label" id="timer-label">Focus Session</div>
+              </div>
+            </div>
+
+            <div class="pomodoro-controls">
+              <button class="btn btn-primary" id="timer-play-btn" style="padding: 1rem 2rem; border-radius: 9999px; font-size:1.1rem;">
+                <svg style="width:20px; height:20px;" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                </svg>Start Focus
+              </button>
+              <button class="btn btn-danger" id="timer-pause-btn" style="padding: 1rem 2rem; border-radius: 9999px; display:none; font-size:1.1rem;">
+                <svg style="width:20px; height:20px;" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>Pause
+              </button>
+              <button class="btn btn-secondary" id="timer-reset-btn" style="padding: 1rem 1.5rem; border-radius: 9999px;">
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Ambient Sound Config -->
+          <div class="glass-card ambient-panel">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">Study Ambient Sounds</h3>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 1.5rem;">Synthetically generated loops to mask external room noises.</p>
+            
+            <div class="ambient-options">
+              <button class="ambient-btn active" data-sound="none">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6L4.5 9H1.5v6h3l4.5 3V6.75z"></path>
+                </svg>
+                <span>Mute</span>
+              </button>
+              <button class="ambient-btn" data-sound="white">
+                <!-- Waves SVG -->
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"></path>
+                </svg>
+                <span>White Noise</span>
+              </button>
+              <button class="ambient-btn" data-sound="ocean">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18M3 18h18"></path>
+                </svg>
+                <span>Ocean Waves</span>
+              </button>
+              <button class="ambient-btn" data-sound="rain">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a9 9 0 0118 0v1a7 7 0 01-14 0H3zM8 21v-2m4 2v-2m4 2v-2"></path>
+                </svg>
+                <span>Soft Rain</span>
+              </button>
+            </div>
+            
+            <div class="ambient-options" style="margin-top: 0.75rem;">
+              <button class="ambient-btn" data-sound="ticking" style="grid-column: 1 / span 4;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Soft Focus Clock Ticking (Binaural Effect)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. NOTES / NOTEBOOK VIEW -->
+      <section id="notes-view" class="view-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Study Notebook</h1>
+            <p class="page-subtitle">Take, search, and categorize notes with real-time Markdown translation.</p>
+          </div>
+        </div>
+
+        <div class="notes-layout">
+          <!-- Notebook list -->
+          <div class="notebook-sidebar">
+            <button class="btn btn-primary" id="create-note-btn" style="width: 100%;">
+              <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+              </svg>New Note
+            </button>
+            <input type="text" id="note-search" class="glass-input" placeholder="Search notes by tags/title...">
+            
+            <div id="notes-list" style="display:flex; flex-direction:column; gap:0.5rem;">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Note Editor -->
+          <div class="glass-card note-editor-container" id="note-editor-container">
+            <div class="note-editor-header">
+              <input type="text" id="note-title-input" class="note-title-input" placeholder="Note Title">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <select id="note-category-input" class="glass-select" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+                  <option value="General">General</option>
+                  <option value="Meta Learning">Meta Learning</option>
+                  <option value="Productivity">Productivity</option>
+                  <option value="Notes">Notes</option>
+                </select>
+                <button class="btn-icon" id="delete-note-btn" title="Delete Note">
+                  <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="editor-panes">
+              <textarea id="note-textarea" class="note-textarea" placeholder="Write your markdown summary note here..."></textarea>
+              <div id="note-preview-pane" class="note-preview-pane"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. 3D FLASHCARDS VIEW -->
+      <section id="flashcards-view" class="view-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">3D Flashcards</h1>
+            <p class="page-subtitle">Implement active recall review utilizing simulated physical 3D flipping card sheets.</p>
+          </div>
+          <button class="btn btn-primary" id="create-deck-btn">
+            <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+            </svg>Create Deck
+          </button>
+        </div>
+
+        <div class="flashcard-layout">
+          <!-- Left Decks bar -->
+          <div class="glass-card" style="height: fit-content; padding: 1.25rem;">
+            <h3 style="font-family: var(--font-heading); margin-bottom:1rem;">Your Decks</h3>
+            <div class="deck-list" id="deck-list">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Active Study Area -->
+          <div class="glass-card study-area">
+            <div style="width:100%; display:flex; justify-content:space-between; margin-bottom:1.5rem; align-items:center;">
+              <h3 style="font-family: var(--font-heading);">Study Focus Deck</h3>
+              <button class="btn btn-secondary" id="add-card-btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; display:none;">
+                + Add Card
+              </button>
+            </div>
+
+            <div id="study-area" style="width: 100%; display: flex; justify-content: center;">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. REMINDER QUIZ VIEW -->
+      <section id="quiz-view" class="view-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Reminder Quizzes</h1>
+            <p class="page-subtitle">Design custom multiple choice quizzes and schedule in-app testing reminders.</p>
+          </div>
+          <button class="btn btn-primary" id="create-quiz-btn">
+            <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+            </svg>Create Quiz
+          </button>
+        </div>
+
+        <div class="grid-3" style="grid-template-columns: 2fr 1.15fr; gap: 1.5rem; align-items: flex-start;">
+          <div>
+            <!-- Quiz List cards grid -->
+            <div class="quiz-grid" id="quiz-list">
+              <!-- Loaded dynamically -->
+            </div>
+
+            <!-- Active Quiz taker sheet -->
+            <div class="glass-card" id="quiz-taker" style="display: none; width: 100%;">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Reminder scheduler panel -->
+          <div class="glass-card quiz-reminder-card">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">⏰ Study Quiz Reminders</h3>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 1.5rem;">Simulate spaced repetition reminders. Schedule a quiz, and a popup will trigger to start it.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <label style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 4px;">Target Quiz</label>
+                <select id="reminder-quiz-select" class="glass-select" style="width: 100%;">
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+
+              <div>
+                <label style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-bottom: 4px;">Trigger Timer Delay</label>
+                <select id="reminder-time-select" class="glass-select" style="width: 100%;">
+                  <option value="5" selected>5 seconds (For Testing)</option>
+                  <option value="15">15 seconds</option>
+                  <option value="60">1 minute</option>
+                  <option value="300">5 minutes</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary" id="schedule-reminder-btn" style="margin-top: 0.5rem;">Schedule Reminder</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODALS OVERLAYS -->
+  
+  <!-- 1. CREATE FLASHCARD DECK MODAL -->
+  <div class="modal-overlay" id="deck-modal">
+    <div class="glass-card modal-content">
+      <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Create Study Deck</h3>
+      <form id="deck-form" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div>
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Deck Title</label>
+          <input type="text" id="deck-name-input" class="glass-input" placeholder="e.g. Cognitive Psychology" required>
+        </div>
+        <div>
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Description (Optional)</label>
+          <textarea id="deck-desc-input" class="glass-input" placeholder="What is this deck about?" style="resize:none; height:80px;"></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem;">
+          <button type="button" class="btn btn-secondary" id="close-deck-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Deck</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. ADD FLASHCARD TO DECK MODAL -->
+  <div class="modal-overlay" id="card-modal">
+    <div class="glass-card modal-content">
+      <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Add Flashcard</h3>
+      <form id="card-form" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div>
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Front Side (Question/Term)</label>
+          <input type="text" id="card-front-input" class="glass-input" placeholder="e.g. What is the CPU?" required>
+        </div>
+        <div>
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Back Side (Answer/Definition)</label>
+          <textarea id="card-back-input" class="glass-input" placeholder="Define or explain the front concept here..." required style="resize:none; height:100px;"></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem;">
+          <button type="button" class="btn btn-secondary" id="close-card-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Flashcard</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. CREATE QUIZ MODAL -->
+  <div class="modal-overlay" id="quiz-creator-modal">
+    <div class="glass-card modal-content" style="max-width: 600px; max-height: 85vh; display: flex; flex-direction: column;">
+      <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Create Quiz Maker</h3>
+      <form id="quiz-creator-form" style="display: flex; flex-direction: column; gap: 1rem; overflow-y: auto; flex-grow: 1; padding-right: 0.5rem;">
+        <div>
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Quiz Title</label>
+          <input type="text" id="quiz-title-input" class="glass-input" placeholder="e.g. Science Midterm Prep" required>
+        </div>
+        <div>
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:4px;">Description</label>
+          <input type="text" id="quiz-desc-input" class="glass-input" placeholder="Brief summary of the test scope">
+        </div>
+        
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="font-family: var(--font-heading);">Questions</h4>
+            <button type="button" class="btn btn-secondary" id="add-question-btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+              + Add Question
+            </button>
+          </div>
+          <div id="creator-questions-list" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Question cards appended here -->
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+          <button type="button" class="btn btn-secondary" id="close-quiz-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Quiz</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Entry Script -->
+  <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
